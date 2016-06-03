@@ -16,9 +16,7 @@ private:
   Wektor** matrix;
 
 public:
-    Macierz(int matrixSize, int vectorSize, int number);
-    Macierz(int matrixSize, int vectorSize);
-    Macierz();
+    Macierz(int matrixSize = 2, int vectorSize = 2, int number = 0);
     Macierz(const Macierz & B);
     virtual ~Macierz();
 
