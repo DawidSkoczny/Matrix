@@ -8,7 +8,7 @@ using namespace std;
             this->matrixSize = 0;
             this->vectorSize = 0;
             matrix = NULL;
-            throw "\nBlad 3-argumentowego konstruktora macierzy 1\n";
+            throw "\nBlad konstruktora macierzy 1\n";
         }
         this->vectorSize = vectorSize;
         this->matrixSize = matrixSize;
@@ -16,7 +16,7 @@ using namespace std;
         if ( matrix == NULL ) {
             this->matrixSize = 0;
             this->vectorSize = 0;
-            throw "\nBlad 3-argumentowego konstruktora macierzy 2\n";
+            throw "\nBlad konstruktora macierzy 2\n";
         }
         for(int i = 0; i < matrixSize; i++) {
             *(matrix+i) = new Wektor(vectorSize, number);
@@ -24,53 +24,7 @@ using namespace std;
                 for ( int j = 0; j < i; j++)
                 delete *(matrix + j);
                 delete [] matrix;
-                throw "\nBlad 3-argumentowego konstruktora macierzy 3\n";
-            }
-        }
-    }
-
-    Macierz::Macierz(int matrixSize, int vectorSize) {
-        if ( matrixSize < 1 || vectorSize < 1 ) {
-            this->matrixSize = 0;
-            this->vectorSize = 0;
-            matrix = NULL;
-            throw "\nBlad 2-argumentowego konstruktora macierzy 1\n";
-        }
-        this->vectorSize = vectorSize;
-        this->matrixSize = matrixSize;
-        matrix = new Wektor * [matrixSize];
-        if ( matrix == NULL ) {
-            this->matrixSize = 0;
-            this->vectorSize = 0;
-            throw "\nBlad 2-argumentowego konstruktora macierzy 2\n";
-        }
-        for(int i = 0; i < matrixSize; i++) {
-            *(matrix+i) = new Wektor(vectorSize);
-            if (*(matrix+i) == NULL) {
-                for ( int j = 0; j < i; j++)
-                delete *(matrix + j);
-                delete [] matrix;
-                throw "\nBlad 2-argumentowego konstruktora macierzy 3\n";
-            }
-        }
-    }
-
-    Macierz::Macierz() {
-        this->vectorSize = 2;
-        this->matrixSize = 2;
-        matrix = new Wektor * [matrixSize];
-        if ( matrix == NULL ) {
-            this->matrixSize = 0;
-            this->vectorSize = 0;
-            throw "\nBlad 0-argumentowego konstruktora macierzy 1\n";
-        }
-        for(int i = 0; i < matrixSize; i++) {
-            *(matrix+i) = new Wektor(vectorSize);
-            if (*(matrix+i) == NULL) {
-                for ( int j = 0; j < i; j++)
-                delete *(matrix + j);
-                delete [] matrix;
-                throw "\nBlad 0-argumentowego konstruktora macierzy 2\n";
+                throw "\nBlad konstruktora macierzy 3\n";
             }
         }
     }
@@ -102,10 +56,10 @@ using namespace std;
     }
 
     Macierz::~Macierz() {
-	for(int i = 0; i < matrixSize; i++) {
-		delete *(matrix + i);
-	}
-	delete[] matrix;
+        for(int i = 0; i < matrixSize; i++) {
+            delete *(matrix + i);
+        }
+        delete[] matrix;
         matrixSize = 0;
         vectorSize = 0;
     }
@@ -299,19 +253,19 @@ using namespace std;
         return (*this);
     }
 
-Wektor& Macierz::operator[] (size_t index) {
-	if(index >= 0 && index < (size_t)matrixSize && matrix != NULL) {
-		return (*matrix)[index];
-	}
-	throw "\nBlad operatora [] macierzy 1\n";
-}
+    Wektor& Macierz::operator[] (size_t index) {
+        if(index >= 0 && index < (size_t)matrixSize && matrix != NULL) {
+            return (*matrix)[index];
+        }
+        throw "\nBlad operatora [] macierzy 1\n";
+    }
 
-const Wektor& Macierz::operator[] (size_t index) const {
-	if(index >= 0 && index < (size_t)matrixSize && matrix != NULL) {
-		return (*matrix)[index];
-	}
-	throw "\nBlad operatora [] macierzy 2\n";
-}
+    const Wektor& Macierz::operator[] (size_t index) const {
+        if(index >= 0 && index < (size_t)matrixSize && matrix != NULL) {
+            return (*matrix)[index];
+        }
+        throw "\nBlad operatora [] macierzy 2\n";
+    }
 
 
 
