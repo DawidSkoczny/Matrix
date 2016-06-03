@@ -11,39 +11,12 @@ using namespace std;
         numbers = new int [vectorSize];
         if(numbers == NULL) {
             this->vectorSize = 0;
-            throw "\nBlad 2-argumentowego konstruktora wektorow\n";
+            throw "\nBlad konstruktora wektorow\n";
         } else {
             this->vectorSize = vectorSize;
             for ( int i = 0; i < vectorSize; i++ )
                 numbers[i] = number;
         }
-    }
-
-    Wektor::Wektor(int vectorSize) {
-        if(vectorSize < 1) {
-            this->vectorSize = 0;
-            numbers = NULL;
-        }
-        numbers = new int [vectorSize];
-        if(numbers == NULL) {
-            this->vectorSize = 0;
-            throw "\nBlad 1-argumentowego konstruktora wektorow\n";
-        } else {
-            this->vectorSize = vectorSize;
-            for ( int i = 0; i < vectorSize; i++ )
-            numbers[i] = 0;
-        }
-    }
-
-    Wektor::Wektor() {
-        numbers = new int [2];
-        if(numbers == NULL) {
-            this->vectorSize = 0;
-            throw "\nBlad 0-argumentowego konstruktora wektorow\n";
-        }
-        numbers[0] = 0;
-        numbers[1] = 0;
-        this->vectorSize = 2;
     }
 
     Wektor::Wektor(const Wektor & B) {
