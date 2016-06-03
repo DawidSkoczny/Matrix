@@ -14,9 +14,7 @@ private:
     int vectorSize;
 
 public:
-    explicit Wektor(int vectorSize, int number);
-    explicit Wektor(int vectorSize);
-    explicit Wektor();
+    explicit Wektor(int vectorSize = 2, int number = 0);
     Wektor(const Wektor & B);
     ~Wektor();
 
