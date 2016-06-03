@@ -14,6 +14,8 @@ int main ( void ) {
         Macierz E(B+C);
         Macierz F(3,4);
 
+        cout << "A=\n" << A << endl << endl;
+
         cout << "dodawanie A=B+C" << endl;
         A=B+C;
         cout << "A=\n" << A << endl << endl;
